@@ -41,7 +41,7 @@ const Banner = () => {
 
                {/* slide2 */}
             <SwiperSlide>
-                <img className='h-screen object-cover brightness-50 w-full' src={slide2} alt="" />
+                <img className='h-screen object-cover brightness-40 w-full' src={slide2} alt="" />
                             <h2 className='absolute mx-6 text-7xl flex items-center text-white inset-0'>Bring Lost  
                     <span className='ml-5'>
                         <Typewriter
