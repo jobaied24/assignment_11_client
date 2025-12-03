@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../../Auth/AuthContext';
+
 import Swal from 'sweetalert2';
 import { Link } from 'react-router';
+import { AuthContext } from '../../Auth/AuthContext';
+
 
 const Login = () => {
   const { userSignIn,googleSignIn } = useContext(AuthContext);

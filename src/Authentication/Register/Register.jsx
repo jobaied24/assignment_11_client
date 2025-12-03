@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../../Auth/AuthContext';
+
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../Auth/AuthContext';
 
 const Register = () => {
   const { UserSignUp,googleSignIn } = useContext(AuthContext);

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router';
+import { AuthContext } from '../Auth/AuthContext';
+import DropDown from '../Pages/Home/DropDown/DropDown';
+
 
 const Navbar = () => {
-
+  const {user}=useContext(AuthContext);
+  
   const link = <div className='text-gray-600'>
   <NavLink to='/'><li>Home</li></NavLink>
   </div>
@@ -28,8 +32,16 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end gap-2">
-    <NavLink to='/login' className="btn btn-primary text-white">Login</NavLink>
+   
+   {
+    user ?  <DropDown></DropDown>
+    :
+    <>
+  <NavLink to='/login' className="btn btn-primary text-white">Login</NavLink>
     <NavLink to='/register' className="btn btn-primary text-white">Register</NavLink>
+    </>
+   }
+  
   </div>
 </div>
     );
