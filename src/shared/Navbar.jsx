@@ -7,8 +7,11 @@ import DropDown from '../Pages/Home/DropDown/DropDown';
 const Navbar = () => {
   const {user}=useContext(AuthContext);
   
-  const link = <div className='text-gray-600'>
+  const link = <div className='text-gray-600 md:flex gap-4'>
   <NavLink to='/'><li>Home</li></NavLink>
+  {
+    user && <NavLink to='/addLostAndFound'>Add lost & Found Itmes</NavLink>
+  }
   </div>
   
     return (
@@ -38,7 +41,7 @@ const Navbar = () => {
     :
     <>
   <NavLink to='/login' className="btn btn-primary text-white">Login</NavLink>
-    <NavLink to='/register' className="btn btn-primary text-white">Register</NavLink>
+  <NavLink to='/register' className="btn btn-primary text-white">Register</NavLink>
     </>
    }
   
