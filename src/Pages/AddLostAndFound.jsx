@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from '../Auth/AuthContext';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddLostAndFound = () => {
     const { user } = useContext(AuthContext);
@@ -10,12 +12,32 @@ const AddLostAndFound = () => {
 
     const handleSubmitForm = e =>{
         e.preventDefault();
-        console.log('add lost or found items')
+        const form= e.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        console.log(data);
+
+        axios.post('http://localhost:3000/addItems',data)
+        .then(res=>{
+            console.log(res.data);
+            if(res.data.insertedId){
+                      Swal.fire({
+                         position: "top-end",
+                         icon: "success",
+                         title: "Sign in successfully",
+                         showConfirmButton: false,
+                         timer: 1500
+                       }); 
+            }
+        })
+        .catch(error=>{
+            console.log(error);
+        })
     }
     return (
         <div>
-            <form onSubmit={handleSubmitForm} className='mx-auto my-20 md:w-md'>
-
+            <form onSubmit={handleSubmitForm} className='mx-auto my-20 md:w-lg rounded-box bg-gray-200 px-10 py-8'>
+               <h1 className='text-center text-2xl mb-4 text-gray-700 font-semibold'>Add Lost And Found Itmes</h1>
                 <fieldset className="fieldset bg-base-200  border-base-300 rounded-box border p-4">
                     <legend className="fieldset-legend text-gray-600">Basic Info</legend>
 
@@ -59,9 +81,10 @@ const AddLostAndFound = () => {
                         selected={date}
                         onChange={(d) => setDate(d)}
                         className="input w-full"
-                        dateFormat={"dd/mm/yyyy"}
+                        dateFormat={"dd/MM/yyyy"}
                         popperPlacement='bottom-end'
                         placeholderText='Date'
+                        name='date'
                     />
                 </fieldset>
 
@@ -84,7 +107,7 @@ const AddLostAndFound = () => {
                 </fieldset>
 
                 {/* submit button */}
-                <button className="btn btn-primary w-full text-white mt-4">Login</button>
+                <button className="btn btn-primary w-full text-white mt-7">Login</button>
 
             </form>
 
