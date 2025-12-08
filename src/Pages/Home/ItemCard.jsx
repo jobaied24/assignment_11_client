@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const ItemCard = ({item}) => {
     
@@ -18,7 +19,7 @@ const ItemCard = ({item}) => {
     <p className='text-sm text-gray-600'>{item.location}</p>
     <p className='text-sm text-gray-600 '>{item.date}</p>
     <div className="card-actions mt-4 justify-end">
-      <button className="btn bg-gray-600 w-full text-white">Buy Now</button>
+      <Link to={`/allItems/${item._id}`} className="btn bg-gray-600 w-full text-white">View Details</Link>
     </div>
   </div>
 </div>

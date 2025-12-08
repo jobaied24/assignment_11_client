@@ -18,11 +18,17 @@ useEffect(()=>{
     })
     },[])
     return (
-        <div className='grid md:grid-cols-3 grid-cols- gap-10 my-20 mx-6'>
+    <div>
+        <div className='grid md:grid-cols-3 grid-cols- gap-10 my-16 mx-6'>
             {
                 items.map(item=><ItemCard item={item}></ItemCard>)
             }
         </div>
+
+    </div>
+
+
+        
     );
 };
 

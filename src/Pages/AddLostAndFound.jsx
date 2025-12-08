@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from '../Auth/AuthContext';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { format } from 'date-fns';
 
 const AddLostAndFound = () => {
     const { user } = useContext(AuthContext);
@@ -16,6 +17,10 @@ const AddLostAndFound = () => {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
         console.log(data);
+        
+if (date) {
+  data.date = date;   // real Date object
+}
 
         axios.post('http://localhost:3000/addItems',data)
         .then(res=>{
@@ -77,6 +82,7 @@ const AddLostAndFound = () => {
 
                     {/* Date */}
                     <label className="label">Date</label>
+                    
                     <DatePicker
                         selected={date}
                         onChange={(d) => setDate(d)}
@@ -84,7 +90,6 @@ const AddLostAndFound = () => {
                         dateFormat={"dd/MM/yyyy"}
                         popperPlacement='bottom-end'
                         placeholderText='Date'
-                        name='date'
                     />
                 </fieldset>
 

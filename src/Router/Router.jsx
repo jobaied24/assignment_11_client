@@ -5,6 +5,8 @@ import Home from '../Pages/Home/Home';
 import Login from '../Authentication/Login/Login';
 import Register from '../Authentication/Register/Register';
 import AddLostAndFound from '../Pages/AddLostAndFound';
+import AllItems from '../Pages/Home/AllItems.jsx/AllItems';
+import PostDetails from '../Pages/Home/PostDetails';
 
 const router = createBrowserRouter([
     {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
             {
                 path:'/addLostAndFound',
                 Component:AddLostAndFound
+            },
+            {
+                path:'/allItems',
+                Component:AllItems
+            },
+            {
+                path:'/allItems/:id',
+                Component:PostDetails
             }
         ]
     }
