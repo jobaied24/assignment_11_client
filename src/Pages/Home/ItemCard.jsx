@@ -15,9 +15,9 @@ const ItemCard = ({item}) => {
     <h2 className="card-title text-xl font-bold text-gray-800">{item.title}
       <div className="badge bg-primary text-gray-700">{item.postType}</div>
     </h2>
-    <p className='text-sm text-gray-600'>{item.category}</p>
-    <p className='text-sm text-gray-600'>{item.location}</p>
-    <p className='text-sm text-gray-600 '>{item.date}</p>
+    <p className='text-sm text-gray-600'><span className='font-semibold'>Category: </span>{item.category}</p>
+    <p className='text-sm text-gray-600'><span className='font-semibold'>Location: </span>{item.location}</p>
+    <p className='text-sm text-gray-600 '><span className='font-semibold'>Date: </span>{item.date}</p>
     <div className="card-actions mt-4 justify-end">
       <Link to={`/allItems/${item._id}`} className="btn bg-gray-600 w-full text-white">View Details</Link>
     </div>
