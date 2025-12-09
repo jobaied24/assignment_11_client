@@ -19,7 +19,7 @@ const AddLostAndFound = () => {
         console.log(data);
         
 if (date) {
-  data.date = date;   // real Date object
+  data.date = date;
 }
 
         axios.post('http://localhost:3000/addItems',data)

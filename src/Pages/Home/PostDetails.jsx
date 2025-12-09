@@ -5,8 +5,18 @@ import { useLoaderData } from 'react-router';
 const PostDetails = () => {
   const details = useLoaderData();
   const [recoveredDate, setRecoveredDate] = useState(null);
-
   console.log(details);
+
+  const handleRecoveredItems = e =>{
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    if(recoveredDate){
+      data.date = recoveredDate.toLocaleDateString();
+    }
+    console.log(data);
+  }
   return (
     <div className="hero bg-base-200 min-h-screen py-20 px-10">
       <div className="hero-content flex-col gap-10 lg:flex-row-reverse">
@@ -33,7 +43,7 @@ const PostDetails = () => {
           {/* The button to open modal */}
           <label htmlFor="my_modal_7" className="btn btn-primary mt-4 text-white">
             {
-              details.postType == "Found" ?
+              details.postType == "Lost" ?
                 <span>Found This!</span> : <span>This is Mine!</span>
             }
           </label>
@@ -43,12 +53,15 @@ const PostDetails = () => {
           <div className="modal" role="dialog">
             <div className="modal-box">
 
-              {/* form */}
+
               <div className="card-body">
                 <h1 className="text-3xl text-primary text-center mb-4 font-medium">Recovery Information</h1>
+                
+                {/* form */}
+                <form onSubmit={handleRecoveredItems}>
                 <fieldset className="fieldset px-4">
                   {/* location */}
-                  <input type="text" className="input w-full" placeholder="Recovered Location" />
+                  <input type="text" name='location' className="input w-full" placeholder="Recovered Location" />
 
                   {/* date */}
                   <DatePicker
@@ -57,18 +70,23 @@ const PostDetails = () => {
                     className="input w-full"
                     dateFormat={"dd/MM/yyyy"}
                     popperPlacement='bottom-end'
-                    placeholderText='Recovery date'
+                    placeholderText='Recovery Date'
                   />
 
                   {/* name */}
-                  <input type="text" className="input w-full text-gray-600" value={details.name} />
+                  <input type="text" name='name' className="input w-full text-gray-600 bg-gray-100" value={details.name} readOnly/>
 
                   {/* email */}
-                  <input type="email" className="input w-full text-gray-600" value={details.email} />
+                  <input type="email" name='email' className="input w-full text-gray-600 bg-gray-100" value={details.email} readOnly/>
+                
+                  {/* image */}
+                  <input type="text" name='thumbnail' className="input w-full text-gray-600 bg-gray-100" value={details.thumbnail} readOnly/>
 
 
-                  <button className="btn bg-gray-600 text-white mt-4">Login</button>
+                  <button className="btn bg-gray-600 text-white mt-4">submit</button>
                 </fieldset>
+                </form>
+
               </div>
             </div>
             <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
