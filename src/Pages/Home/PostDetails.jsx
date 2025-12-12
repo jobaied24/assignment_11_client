@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { useLoaderData } from 'react-router';
@@ -7,15 +8,28 @@ const PostDetails = () => {
   const [recoveredDate, setRecoveredDate] = useState(null);
   console.log(details);
 
+
+
   const handleRecoveredItems = e =>{
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
+    
     if(recoveredDate){
       data.date = recoveredDate.toLocaleDateString();
-    }
+    };
+    data.itemId = details._id;
     console.log(data);
+
+    axios.post('http://localhost:3000/recovered',data)
+    .then(res=>{
+      console.log(res.data);
+    })
+    .catch(error=>{
+      console.log(error);
+    })
+
   }
   return (
     <div className="hero bg-base-200 min-h-screen py-20 px-10">
@@ -41,7 +55,7 @@ const PostDetails = () => {
 
           {/* modal */}
           {/* The button to open modal */}
-          <label htmlFor="my_modal_7" className="btn btn-primary mt-4 text-white">
+          <label htmlFor="my_modal_7" className={`btn btn-primary mt-4 text-white ${details.status==="recovered" && "btn-disabled"}`}>
             {
               details.postType == "Lost" ?
                 <span>Found This!</span> : <span>This is Mine!</span>

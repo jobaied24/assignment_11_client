@@ -22,6 +22,7 @@ if (date) {
   data.date = date;
 }
 
+
         axios.post('http://localhost:3000/addItems',data)
         .then(res=>{
             console.log(res.data);
@@ -112,7 +113,7 @@ if (date) {
                 </fieldset>
 
                 {/* submit button */}
-                <button className="btn btn-primary w-full text-white mt-7">Login</button>
+                <button className="btn btn-primary w-full text-white mt-7">Add Post</button>
 
             </form>
 
