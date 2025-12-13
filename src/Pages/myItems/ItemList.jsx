@@ -27,8 +27,8 @@ const ItemList = ({itemsPromise}) => {
 
       {/* rows */}
       {
-        myItems.map((myItem,index)=><>
-              <tr>
+        myItems.map((myItem,index)=>
+              <tr key={myItem._id}>
         <th>
           <label>
             {index+1}
@@ -52,11 +52,11 @@ const ItemList = ({itemsPromise}) => {
         </td>
         <td className='font-medium'>{myItem.date}</td>
         <th className='flex gap-4'>
-          <Link className="btn btn-primary btn-xs text-white">Update</Link>
-          <Link className="btn bg-gray-600 btn-xs text-white">Delete</Link>
+          <Link to={`/updateItem/${myItem._id}`} className="btn btn-primary btn-xs text-white">Update</Link>
+          <Link className="btn btn-primary btn-xs text-white">Delete</Link>
         </th>
       </tr>
-        </>)
+       )
       }
 
       
