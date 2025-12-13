@@ -8,7 +8,8 @@ const axiosInstance = axios.create({
 
 const useAxiosSecure = () => {
     const {user}= useContext(AuthContext);
-
+     console.log(user);
+     
         axiosInstance.interceptors.request.use(config=>{
         config.headers.authorization = `Bearer ${user.accessToken}`;
         return config;

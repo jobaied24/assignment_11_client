@@ -4,8 +4,8 @@ import useAxiosSecure from '../Hook/useAxiosSecure';
 const useItemApi = () => {
     const axiosSecure= useAxiosSecure();
 
-    const itemsPromise = () =>{
-        return axiosSecure.get(`/items`)
+    const itemsPromise = email =>{
+        return axiosSecure.get(`/items?email=${email}`)
         .then(res=>res.data);
     }
 

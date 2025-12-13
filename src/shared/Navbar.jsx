@@ -10,8 +10,11 @@ const Navbar = () => {
   const link = <div className='text-gray-600 md:flex gap-4'>
   <NavLink to='/'><li>Home</li></NavLink>
   {
-    user && <NavLink to='/addLostAndFound'>Add lost & Found Itmes</NavLink>
-  }
+    user && <>
+    <NavLink to='/addLostAndFound'>Add lost & Found Itmes</NavLink>
+      <NavLink to='/myItems'>My Items</NavLink>
+    </>
+}
   </div>
   
     return (
