@@ -9,6 +9,7 @@ import AllItems from '../Pages/Home/AllItems.jsx/AllItems';
 import PostDetails from '../Pages/Home/PostDetails';
 import MyItems from '../Pages/myItems/MyItems';
 import UpdateItem from '../Pages/UpdateItem';
+import RecoveredItems from '../Pages/recovered/RecoveredItems';
 
 const router = createBrowserRouter([
     {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
                 path:'/updateItem/:id',
                 Component:UpdateItem,
                 loader:({params})=>fetch(`http://localhost:3000/items/${params.id}`)
+            },
+            {
+                path:'/allRecovered',
+                Component:RecoveredItems
             }
         ]
     }

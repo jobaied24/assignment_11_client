@@ -73,7 +73,8 @@ const PostDetails = () => {
                 
                 {/* form */}
                 <form onSubmit={handleRecoveredItems}>
-                <fieldset className="fieldset px-4">
+                <fieldset className="fieldset px-4">  
+
                   {/* location */}
                   <input type="text" name='location' className="input w-full" placeholder="Recovered Location" />
 
@@ -93,6 +94,15 @@ const PostDetails = () => {
                   {/* email */}
                   <input type="email" name='email' className="input w-full text-gray-600 bg-gray-100" value={details.email} readOnly/>
                 
+                  {/* post Type */}
+                  <input type="text" name='postType' className="input w-full text-gray-600 bg-gray-100" placeholder="post Type" value={details.postType} readOnly  />
+               
+                  {/* post Type */}
+                  <input type="text" name='category' className="input w-full text-gray-600 bg-gray-100" placeholder="Category" value={details.category} readOnly  />
+               
+                    {/* title */}
+                  <input type="text" name='title' className="input w-full  text-gray-600 bg-gray-100" placeholder="Item title" value={details.title} readOnly />
+                 
                   {/* image */}
                   <input type="text" name='thumbnail' className="input w-full text-gray-600 bg-gray-100" value={details.thumbnail} readOnly/>
 
@@ -102,7 +112,7 @@ const PostDetails = () => {
                 </form>
 
               </div>
-            </div>
+            </div>100
             <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
           </div>
 

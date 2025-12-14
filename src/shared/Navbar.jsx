@@ -13,6 +13,7 @@ const Navbar = () => {
     user && <>
     <NavLink to='/addLostAndFound'>Add lost & Found Itmes</NavLink>
       <NavLink to='/myItems'>My Items</NavLink>
+      <NavLink to='/allRecovered'>Recovered Items</NavLink>
     </>
 }
   </div>
