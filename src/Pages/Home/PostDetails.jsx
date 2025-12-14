@@ -9,7 +9,6 @@ const PostDetails = () => {
   console.log(details);
 
 
-
   const handleRecoveredItems = e =>{
     e.preventDefault();
     const form = e.target;

@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const ItemCard = ({item}) => {
     
     return (
-<div className="card bg-base-100 w-96 shadow-sm hover:shadow-xl transition-all duration-300">
+<div className="card bg-base-100 shadow-sm hover:shadow-xl transition-all duration-300">
   <figure>
     <img
     className='h-[180px]'

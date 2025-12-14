@@ -17,9 +17,10 @@ useEffect(()=>{
         console.log(error);
     })
     },[])
+    
     return (
     <div>
-        <div className='grid md:grid-cols-3 grid-cols- gap-10 my-16 mx-6'>
+        <div className='grid md:grid-cols-3 grid-cols-1 gap-8 my-16 mx-6'>
             {
                 items.map(item=><ItemCard item={item}></ItemCard>)
             }
