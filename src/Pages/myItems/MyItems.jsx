@@ -2,20 +2,21 @@ import React, { Suspense, useContext } from 'react';
 import useItemApi from '../../Api/useItemApi';
 import ItemList from './ItemList';
 import { AuthContext } from '../../Auth/AuthContext';
+import Loading from '../../shared/Loading';
 
 const MyItems = () => {
     const {user} = useContext(AuthContext); 
     const {itemsPromise} = useItemApi();
     console.log(itemsPromise)
-      if (!user) {
-    return <p>Loading user...</p>;
-  }
+
     return (
      <div>
-
-        <Suspense fallback='wait kijiey...'>
+       
+      <Suspense fallback={<Loading></Loading>}>
      <ItemList itemsPromise={itemsPromise(user.email)}></ItemList>
-        </Suspense>
+        </Suspense> 
+
+
      </div>
     );
 };

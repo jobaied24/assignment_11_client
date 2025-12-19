@@ -19,7 +19,7 @@ const AddLostAndFound = () => {
         console.log(data);
         
 if (date) {
-  data.date = date;
+  data.date = date.toLocaleDateString();
 }
 
 

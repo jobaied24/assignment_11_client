@@ -2,17 +2,15 @@ import React, { Suspense, useContext } from 'react';
 import useRecoveredApi from '../../Api/useRecoveredApi';
 import { AuthContext } from '../../Auth/AuthContext';
 import RecoveredItemList from './RecoveredItemList';
+import Loading from '../../shared/Loading';
 
 const RecoveredItems = () => {
     const {user} = useContext(AuthContext);
     const {recoveredItemsPromise}=useRecoveredApi();
      
-          if (!user) {
-    return <p>Loading user...</p>;
-  }
   
     return (
-        <Suspense fallback={'wait kijiey'}>
+        <Suspense fallback={<Loading></Loading>}>
           <RecoveredItemList recoveredItemsPromise={recoveredItemsPromise(user.email)}></RecoveredItemList>
         </Suspense>
     );

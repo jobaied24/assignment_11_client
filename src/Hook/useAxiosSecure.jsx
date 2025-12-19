@@ -1,19 +1,13 @@
 import axios from 'axios';
-import React, { useContext } from 'react';
+import React from 'react';
 import { AuthContext } from '../Auth/AuthContext';
 
 const axiosInstance = axios.create({
-    baseURL:'http://localhost:3000'
+    baseURL:'http://localhost:3000',
+    withCredentials: true
 });
 
 const useAxiosSecure = () => {
-    const {user}= useContext(AuthContext);
-     console.log(user);
-     
-        axiosInstance.interceptors.request.use(config=>{
-        config.headers.authorization = `Bearer ${user.accessToken}`;
-        return config;
-    });
 
     return axiosInstance; 
 };

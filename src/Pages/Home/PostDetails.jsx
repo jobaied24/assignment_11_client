@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { useLoaderData } from 'react-router';
+import Swal from 'sweetalert2';
 
 const PostDetails = () => {
   const details = useLoaderData();
@@ -24,6 +25,13 @@ const PostDetails = () => {
     axios.post('http://localhost:3000/recovered',data)
     .then(res=>{
       console.log(res.data);
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Item recovered successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
     })
     .catch(error=>{
       console.log(error);

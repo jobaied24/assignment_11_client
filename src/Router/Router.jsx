@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { createBrowserRouter } from 'react-router';
 import RootLayout from '../Layout/RootLayout';
 import Home from '../Pages/Home/Home';
@@ -10,6 +10,9 @@ import PostDetails from '../Pages/Home/PostDetails';
 import MyItems from '../Pages/myItems/MyItems';
 import UpdateItem from '../Pages/UpdateItem';
 import RecoveredItems from '../Pages/recovered/RecoveredItems';
+import PrivateRoute from '../shared/PrivateRoute';
+import ErrorCard from '../error/ErrorCard';
+import Error from '../error/Error';
 
 const router = createBrowserRouter([
     {
@@ -18,7 +21,9 @@ const router = createBrowserRouter([
         children:[
             {
                 index:true,
-                Component:Home
+                Component:Home,
+                loader:()=>fetch(`http://localhost:3000/items?limit=6`)
+                .then(res=>res.json())
             },
             {
                 path:'/register',
@@ -30,7 +35,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/addLostAndFound',
-                Component:AddLostAndFound
+                element:<PrivateRoute><AddLostAndFound></AddLostAndFound></PrivateRoute>
             },
             {
                 path:'/allItems',
@@ -38,12 +43,12 @@ const router = createBrowserRouter([
             },
             {
                 path:'/allItems/:id',
-                Component:PostDetails,
+                element:<PrivateRoute><PostDetails></PostDetails></PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:3000/items/${params.id}`)
             },
             {  
                 path:'/myItems',
-                Component:MyItems,         
+                element:<PrivateRoute><MyItems></MyItems></PrivateRoute>        
             },
             {
                 path:'/updateItem/:id',
@@ -52,9 +57,20 @@ const router = createBrowserRouter([
             },
             {
                 path:'/allRecovered',
-                Component:RecoveredItems
+                element:<PrivateRoute><RecoveredItems></RecoveredItems></PrivateRoute>
             }
         ]
-    }
+    },
+    {
+        path:'*',
+        Component:Error,
+        children:[
+            {
+                path:'*',
+                Component:ErrorCard
+            }
+        ]
+    }      
+    
 ])
 export default router;

@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { use, useState } from 'react';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
+import EmptyMsg from '../../error/EmptyMsg';
 
 const ItemList = ({ itemsPromise }) => {
   const initialItems = use(itemsPromise);
@@ -42,7 +43,8 @@ const ItemList = ({ itemsPromise }) => {
   console.log(myItems);
   return (
     <div className='m-12'>
-      <div className="overflow-x-auto">
+      {
+        myItems.length>0 ?       <div className="overflow-x-auto">
 
         <table className="table">
           {/* head */}
@@ -98,7 +100,9 @@ const ItemList = ({ itemsPromise }) => {
 
           </tbody>
         </table>
-      </div>
+      </div>   : <EmptyMsg></EmptyMsg>
+      }
+
     </div>
   );
 };

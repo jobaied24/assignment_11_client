@@ -13,7 +13,9 @@ const UpdateItem = () => {
         const form = e.target;
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
-        data.date = itemDate;
+        if(itemDate){
+        data.date = itemDate.toLocaleDateString();
+        }
         console.log(data);
 
         axios.put(`http://localhost:3000/updateItem/${myItem._id}`, data)

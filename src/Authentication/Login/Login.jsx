@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
 
 import Swal from 'sweetalert2';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Auth/AuthContext';
 
 
 const Login = () => {
-  const { userSignIn,googleSignIn } = useContext(AuthContext);
+  const { userSignIn, googleSignIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const redirectPath = location.state || '/'
 
   const handleSignIn = e => {
     e.preventDefault();
@@ -18,6 +21,7 @@ const Login = () => {
     userSignIn(email, password)
       .then(res => {
         console.log(res.user);
+
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -25,41 +29,51 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500
         });
+
+        navigate(redirectPath);
       })
       .catch(error => {
-        const errorCode=error.code;
+        const errorCode = error.code;
+
         console.log(errorCode);
+
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text:errorCode
+          text: errorCode
         });
+
       })
   }
 
 
   // google signin
-  const handleGoogleSignIn =()=>{
-     return googleSignIn()
-     .then(res=>{
-      console.log(res.user);
-       Swal.fire({
+  const handleGoogleSignIn = () => {
+    return googleSignIn()
+      .then(res => {
+
+        console.log(res.user);
+        Swal.fire({
           position: "top-end",
           icon: "success",
           title: "Sign in successfully",
           showConfirmButton: false,
           timer: 1500
-        });
-     })
-     .catch(error=>{
-      const errorCode=error.code;
-      console.log(errorCode);
-              Swal.fire({
+        })
+          .then(() => {
+            navigate(redirectPath);
+          })
+
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        console.log(errorCode);
+        Swal.fire({
           icon: "error",
           title: "Oops...",
           text: errorCode
         });
-     })
+      })
   }
 
   return (
@@ -75,7 +89,7 @@ const Login = () => {
               <input type="email" name='email' className="input" placeholder="Email" />
               <label className="label">Password</label>
               <input type="password" name='password' className="input" placeholder="Password" />
-              <div className=" text-gray-500">Don't have an account? <Link className='font-semibold text-blue-500' to='/register'>Register</Link></div>
+              <div className=" text-gray-500">Don't have an account? <Link className='font-semibold text-blue-500' to='/register' state={location.state}>Register</Link></div>
               <button className="btn btn-primary mt-4 text-white">Login</button>
             </fieldset>
           </form>

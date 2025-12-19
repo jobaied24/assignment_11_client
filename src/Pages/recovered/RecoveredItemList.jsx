@@ -1,4 +1,5 @@
 import React, { use } from 'react';
+import EmptyMsg from '../../error/EmptyMsg';
 
 const RecoveredItemList = ({recoveredItemsPromise}) => {
     const recoveredItems = use(recoveredItemsPromise);
@@ -6,7 +7,9 @@ const RecoveredItemList = ({recoveredItemsPromise}) => {
     
     return (
     <div className='my-12 mx-20'>
-      <div className="overflow-x-auto">
+      {
+        recoveredItems.length>0 ? 
+              <div className="overflow-x-auto">
 
         <table className="table">
           {/* head */}
@@ -64,7 +67,9 @@ const RecoveredItemList = ({recoveredItemsPromise}) => {
             }
           </tbody>
         </table>
-      </div>
+      </div>  : <EmptyMsg></EmptyMsg>
+      }
+
     </div>
     );
 };
