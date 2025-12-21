@@ -15,8 +15,8 @@ const ItemList = ({ itemsPromise }) => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#f9bf3b",
+      cancelButtonColor: "#4B5563",
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
@@ -91,7 +91,7 @@ const ItemList = ({ itemsPromise }) => {
                   <td className='font-medium'>{myItem.date}</td>
                   <th className='flex gap-4'>
                     <Link to={`/updateItem/${myItem._id}`} className="btn btn-primary btn-xs text-white">Update</Link>
-                    <Link onClick={()=>handleDeleteItem(myItem._id)} className="btn btn-primary btn-xs text-white">Delete</Link>
+                    <Link onClick={()=>handleDeleteItem(myItem._id)} className="btn bg-gray-600 btn-xs text-white">Delete</Link>
                   </th>
                 </tr>
               )

@@ -11,8 +11,9 @@ import { Typewriter } from 'react-simple-typewriter';
 const Banner = () => {
     return (
         <Swiper
-       
+          loop = {true}
          autoplay = {
+            
            {
             delay:5000
            }
@@ -26,12 +27,13 @@ const Banner = () => {
                 <img className='object-cover brightness-50 h-screen w-full' src={slide1} alt="" />
                 
                 <h2 className='absolute mx-6 text-7xl flex items-center text-white inset-0'>Search, Report,
-                    <span className='ml-5'>
+                    <span className='ml-5 inline-block min-w-[260px] md:min-w-[420px]'>
                         <Typewriter
                         words={[' and Recover']}
                         loop={0}
-                        typeSpeed={60}
-                        delaySpeed={2000}
+                        typeSpeed={35}
+                        delaySpeed={1500}
+                        cursor={false}
                         />  
                     </span>
                      </h2>
@@ -43,12 +45,13 @@ const Banner = () => {
             <SwiperSlide>
                 <img className='h-screen object-cover brightness-40 w-full' src={slide2} alt="" />
                             <h2 className='absolute mx-6 text-7xl flex items-center text-white inset-0'>Bring Lost  
-                    <span className='ml-5'>
+                    <span className='ml-5 inline-block min-w-[260px] md:min-w-[420px]'>
                         <Typewriter
                         words={['Items Back Home']}
                         loop={0}
-                        typeSpeed={60}
-                        delaySpeed={2000}
+                        typeSpeed={35}
+                        delaySpeed={1500}
+                        cursor={false}
                         />  
                     </span>
                      </h2>
@@ -59,12 +62,12 @@ const Banner = () => {
             <SwiperSlide>
                 <img className='h-screen object-cover brightness-50 w-full' src={slide3} alt="" />
                            <h2 className='absolute mx-6 text-7xl flex items-center text-white inset-0'>Your Lost  
-                    <span className='ml-5'>
+                    <span className='ml-5 inline-block min-w-[260px] md:min-w-[420px]'>
                         <Typewriter
                         words={['Item Might Be Here']}
                         loop={0}
-                        typeSpeed={60}
-                        delaySpeed={2000}
+                        typeSpeed={35}
+                        delaySpeed={1500}
                         />  
                     </span>
                      </h2>
@@ -75,12 +78,12 @@ const Banner = () => {
             <SwiperSlide>
                 <img className='h-screen object-cover brightness-40 w-full' src={slide4} alt="" />
                             <h2 className='absolute mx-6 text-7xl  flex items-center text-white inset-0'>Make 
-                    <span className='ml-5'>
+                    <span className='ml-5 inline-block min-w-[260px] md:min-w-[420px]'>
                         <Typewriter
                         words={['Someone Happy']}
                         loop={0}
-                        typeSpeed={60}
-                        delaySpeed={2000}
+                        typeSpeed={35}
+                        delaySpeed={1500}
                         />  
                     </span>
                      </h2>
