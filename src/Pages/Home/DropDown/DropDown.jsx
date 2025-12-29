@@ -24,7 +24,7 @@ const DropDown = () => {
         <div className='flex gap-3 items-center'>
             <div className="dropdown dropdown-hover dropdown-center">
                 <div tabIndex={0} role="button" className=" m-1">
-                    <img src={user.photoURL} className='h-[45px] rounded-full'></img>
+                    <img src={user.photoURL} className='h-[30px] md:h-[45px] rounded-full'></img>
                 </div>
                 <ul tabIndex={0} className="dropdown-content menu bg-gray-500 text-primary rounded-box z-10 w-48 py-5 mt-2 shadow-sm">
                       <h3 className='text-xl font-semibold text-center'>{user.displayName}</h3>
@@ -32,7 +32,7 @@ const DropDown = () => {
  
             </div>
 
-            <NavLink to='/' onClick={handleSignOut} className="btn btn-primary text-white">Sign Out</NavLink>
+            <NavLink to='/' onClick={handleSignOut} className="btn btn-sm md:btn-md btn-primary text-white">Sign Out</NavLink>
         </div>
     );
 };

@@ -24,9 +24,9 @@ const Banner = () => {
             {/* slide1 */}
             <SwiperSlide>
                 <div className='relative'>
-                <img className='object-cover brightness-50 h-screen w-full' src={slide1} alt="" />
+                <img className='object-cover brightness-50 md:h-screen w-full' src={slide1} alt="" />
                 
-                <h2 className='absolute mx-6 text-7xl flex items-center text-white inset-0'>Search, Report,
+                <h2 className='absolute mx-6 md:text-7xl text-2xl flex  items-center text-white inset-0'>Search, Report,
                     <span className='ml-5 inline-block min-w-[260px] md:min-w-[420px]'>
                         <Typewriter
                         words={[' and Recover']}
@@ -43,8 +43,8 @@ const Banner = () => {
 
                {/* slide2 */}
             <SwiperSlide>
-                <img className='h-screen object-cover brightness-40 w-full' src={slide2} alt="" />
-                            <h2 className='absolute mx-6 text-7xl flex items-center text-white inset-0'>Bring Lost  
+                <img className='md:h-screen object-cover brightness-40 w-full' src={slide2} alt="" />
+                            <h2 className='absolute mx-6 md:text-7xl text-2xl flex items-center text-white inset-0'>Bring Lost  
                     <span className='ml-5 inline-block min-w-[260px] md:min-w-[420px]'>
                         <Typewriter
                         words={['Items Back Home']}
@@ -60,8 +60,8 @@ const Banner = () => {
 
           {/* slide3 */}
             <SwiperSlide>
-                <img className='h-screen object-cover brightness-50 w-full' src={slide3} alt="" />
-                           <h2 className='absolute mx-6 text-7xl flex items-center text-white inset-0'>Your Lost  
+                <img className='md:h-screen h-[250px] object-cover brightness-50 w-full' src={slide3} alt="" />
+                           <h2 className='absolute mx-6 md:text-7xl text-2xl flex items-center text-white inset-0'>Your Lost  
                     <span className='ml-5 inline-block min-w-[260px] md:min-w-[420px]'>
                         <Typewriter
                         words={['Item Might Be Here']}
@@ -76,8 +76,8 @@ const Banner = () => {
 
               {/* slide4 */}
             <SwiperSlide>
-                <img className='h-screen object-cover brightness-40 w-full' src={slide4} alt="" />
-                            <h2 className='absolute mx-6 text-7xl  flex items-center text-white inset-0'>Make 
+                <img className='md:h-screen object-cover brightness-40 w-full' src={slide4} alt="" />
+                            <h2 className='absolute mx-6 md:text-7xl text-2xl flex items-center text-white inset-0'>Make 
                     <span className='ml-5 inline-block min-w-[260px] md:min-w-[420px]'>
                         <Typewriter
                         words={['Someone Happy']}

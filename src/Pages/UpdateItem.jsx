@@ -18,7 +18,9 @@ const UpdateItem = () => {
         }
         console.log(data);
 
-        axios.put(`http://localhost:3000/updateItem/${myItem._id}`, data)
+        axios.put(`https://assignment11-server-puce.vercel.app/updateItem/${myItem._id}`, data,{
+            withCredentials:true
+        })
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount) {

@@ -23,7 +23,7 @@ if (date) {
 }
 
 
-        axios.post('http://localhost:3000/addItems',data)
+        axios.post('https://assignment11-server-puce.vercel.app/addItems',data)
         .then(res=>{
             console.log(res.data);
             if(res.data.insertedId){
@@ -42,7 +42,7 @@ if (date) {
     }
     return (
         <div>
-            <form onSubmit={handleSubmitForm} className='mx-auto my-20 md:w-lg rounded-box bg-gray-200 px-10 py-8'>
+            <form onSubmit={handleSubmitForm} className='mx-6 md:mx- my-12 md:my-20 md:w-lg rounded-box bg-gray-200 px-2 md:px-10 py-8'>
                <h1 className='text-center text-2xl mb-4 text-gray-700 font-semibold'>Add Lost And Found Itmes</h1>
                 <fieldset className="fieldset bg-base-200  border-base-300 rounded-box border p-4">
                     <legend className="fieldset-legend text-gray-600">Basic Info</legend>

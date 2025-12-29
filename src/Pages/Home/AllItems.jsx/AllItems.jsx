@@ -9,7 +9,9 @@ const AllItems = () =>{
     const [items,setItems] = useState([]);
    
 useEffect(()=>{
-    axios.get('http://localhost:3000/items')
+    axios.get('https://assignment11-server-puce.vercel.app/items',{
+        withCredentials:true
+    })
     .then(res=>{
         console.log(res.data);
         setItems(res.data);
@@ -25,7 +27,7 @@ useEffect(()=>{
     const search = e.target.search.value;
     console.log(search);
 
-    axios(`http://localhost:3000/items?title=${search}`)
+    axios(`https://assignment11-server-puce.vercel.app/items?title=${search}`)
     .then(res=>{
         console.log(res.data);
         setItems(res.data);
@@ -41,7 +43,7 @@ useEffect(()=>{
 
         {/* search */}
         <form onSubmit={handleSearchItems}>
-            <fieldset className="fieldset  mx-auto my-6 w-1/2 rounded-box  p-4">
+            <fieldset className="fieldset  md:mx-auto my-6 mx-4 md:w-1/2 rounded-box md:p-4">
   <div className="join">
     <input type="text" name='search' className="input w-full join-item" placeholder="Find items by title" />
     <button className="btn btn-primary text-white join-item">search</button>
@@ -65,7 +67,7 @@ useEffect(()=>{
           }
 
 
-        <div className='grid md:grid-cols-3 grid-cols-1 gap-8 my-16 mx-6'>
+        <div className='grid md:grid-cols-3 grid-cols-1 gap-8 my-8 md:my-16 mx-6'>
 
             {
                 items.map(item=><ItemCard key={item._id} item={item}></ItemCard>)

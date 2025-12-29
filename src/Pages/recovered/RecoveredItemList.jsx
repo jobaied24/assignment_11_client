@@ -6,16 +6,16 @@ const RecoveredItemList = ({recoveredItemsPromise}) => {
     console.log(recoveredItems);
     
     return (
-    <div className='my-12 mx-20'>
+    <div className='my-4 md:my-12 mx-1 md:mx-20'>
       {
         recoveredItems.length>0 ? 
               <div className="overflow-x-auto">
 
-        <table className="table">
+        <table className="table-xs md:table text-gray-600">
           {/* head */}
           <thead>
             <tr>
-              <th>
+              <th className='hidden md:block'>
                 <label>
                   No.
                 </label>
@@ -32,15 +32,15 @@ const RecoveredItemList = ({recoveredItemsPromise}) => {
             {
               recoveredItems.map((recoveredItem, index) =>
                 <tr key={recoveredItem._id}>
-                  <th>
+                  <th className='hidden md:block'>
                     <label>
                       {index + 1}
                     </label>
                   </th>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center  md:gap-3">
             <div className="avatar">
-              <div className="mask mask-squircle h-10 w-10">
+              <div className="mask mask-squircle h-10 w-10 hidden md:block">
                 <img
                   src={recoveredItem.thumbnail}
                   alt="Avatar Tailwind CSS Component" />

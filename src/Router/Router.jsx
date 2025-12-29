@@ -22,7 +22,7 @@ const router = createBrowserRouter([
             {
                 index:true,
                 Component:Home,
-                loader:()=>fetch(`http://localhost:3000/items?limit=6`)
+                loader:()=>fetch(`https://assignment11-server-puce.vercel.app/items?limit=6`)
                 .then(res=>res.json())
             },
             {
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
             {
                 path:'/allItems/:id',
                 element:<PrivateRoute><PostDetails></PostDetails></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:3000/items/${params.id}`)
+                loader:({params})=>fetch(`https://assignment11-server-puce.vercel.app/items/${params.id}`)
             },
             {  
                 path:'/myItems',
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
             {
                 path:'/updateItem/:id',
                 Component:UpdateItem,
-                loader:({params})=>fetch(`http://localhost:3000/items/${params.id}`)
+                loader:({params})=>fetch(`https://assignment11-server-puce.vercel.app/items/${params.id}`)
             },
             {
                 path:'/allRecovered',

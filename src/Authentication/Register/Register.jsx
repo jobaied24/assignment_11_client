@@ -100,10 +100,10 @@ const Register = () => {
 
 
   return (
-    <div className="hero py-20 bg-base-200 min-h-screen">
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+    <div className="hero py-12 md:py-20 bg-base-200 md:min-h-screen">
+      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-sm md:shadow-2xl">
         <div className="card-body">
-          <h1 className="text-center text-4xl text-gray-500 font-semibold">Register now!</h1>
+          <h1 className="text-center text-3xl md:text-4xl text-gray-500 font-semibold">Register now!</h1>
           {/* form */}
           <form onSubmit={handleRegister}>
             <fieldset className="fieldset">

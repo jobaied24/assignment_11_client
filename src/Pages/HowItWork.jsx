@@ -11,8 +11,8 @@ const HowItWork = () => {
 
     return (
 
- <div className="my-36 mx-10 text-center">
-      <h2 className="text-4xl text-gray-600 font-semibold mb-12">How It Works</h2>
+ <div className="my-20 md:my-36 mx-10 text-center">
+      <h2 className="text-3xl md:text-4xl text-gray-600 font-semibold mb-12">How It Works</h2>
 
       <div className="grid md:grid-cols-3 gap-12">
 
@@ -22,7 +22,7 @@ const HowItWork = () => {
         direction='left'
         >
           <motion.div
-            className=" relative group overflow-hidden px-8 py-12 bg-white shadow-lg rounded-lg"
+            className=" relative group overflow-hidden px-6 md:px-8 py-8 md:py-12 bg-white shadow-lg rounded-lg"
 
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
@@ -46,7 +46,7 @@ const HowItWork = () => {
         direction='up'
         >
           <motion.div
-            className="relative group overflow-hidden px-8 py-12 shadow-lg rounded-lg"
+            className="relative group overflow-hidden px-6 md:px-8 py-8 md:py-12 shadow-lg rounded-lg"
             transition={{ duration: 0.6}}
             whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
           >
@@ -71,7 +71,7 @@ const HowItWork = () => {
         >
 
           <motion.div 
-          className='relative group overflow-hidden px-8 py-12 shadow-lg rounded-lg'
+          className='relative group overflow-hidden px-6 md:px-8 py-8 md:py-12 shadow-lg rounded-lg'
           transition ={{duration:0.6}}
           whileHover={{scale:1.05,transition:{duration:0.3}}}
           >

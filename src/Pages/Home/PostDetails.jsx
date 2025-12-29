@@ -22,7 +22,9 @@ const PostDetails = () => {
     data.itemId = details._id;
     console.log(data);
 
-    axios.post('http://localhost:3000/recovered',data)
+    axios.post('https://assignment11-server-puce.vercel.app/recovered',data,{
+      withCredentials:true
+    })
     .then(res=>{
       console.log(res.data);
               Swal.fire({
@@ -39,12 +41,12 @@ const PostDetails = () => {
 
   }
   return (
-    <div className="hero bg-base-200 min-h-screen py-20 px-10">
+    <div className="hero bg-base-200 min-h-screen py-20 md:px-10">
       <div className="hero-content flex-col gap-10 lg:flex-row-reverse">
         <div>
           <img
             src={details.thumbnail}
-            className="max-w-sm rounded-lg object-cover shadow-xl"
+            className="max-w-xs md:max-w-sm rounded-lg object-cover shadow-xl"
           />
         </div>
         <div className='space-y-2'>
@@ -76,11 +78,11 @@ const PostDetails = () => {
 
 
               <div className="card-body">
-                <h1 className="text-3xl text-primary text-center mb-4 font-medium">Recovery Information</h1>
+                <h1 className="text-2xl md:text-3xl text-primary text-center mb-4 font-medium">Recovery Information</h1>
                 
                 {/* form */}
                 <form onSubmit={handleRecoveredItems}>
-                <fieldset className="fieldset px-4">  
+                <fieldset className="fieldset md:px-4">  
 
                   {/* location */}
                   <input type="text" name='location' className="input w-full" placeholder="Recovered Location" />
