@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 
 const UpdateItem = () => {
     const myItem = useLoaderData();
-    const [itemDate, setItemDate] = useState(myItem.date);
+    const [itemDate, setItemDate] =useState(myItem.date ? new Date(myItem.date) : null);
 
     const handleUpdateItem = e => {
         e.preventDefault();
@@ -14,7 +14,7 @@ const UpdateItem = () => {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
         if(itemDate){
-        data.date = itemDate.toLocaleDateString();
+        data.date = itemDate.toISOString();
         }
         console.log(data);
 
